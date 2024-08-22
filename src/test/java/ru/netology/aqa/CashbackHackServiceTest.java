@@ -1,30 +1,27 @@
 package ru.netology.aqa;
 
-import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.assertEquals;
 
-
-@Test
 public class CashbackHackServiceTest {
-    CashbackHackService service = new CashbackHackService();
 
-    public void shouldSummaLess1000() {
+    @org.junit.Test
+    public void testRemain() {
+        CashbackHackService service = new CashbackHackService();
 
-        int amount = 900;
+        int amount = 1000;
         int actual = service.remain(amount);
-        int expected = 100;
+        int expected = 0;
         assertEquals(expected, actual);
     }
 
-    @Test
-    public class CashbackHackServiceTest {
-        CashbackHackService service = new CashbackHackService();
+    @org.junit.Test
 
-        public void shouldNotRemain1000() {
-            int amount = 1000;
-            int actual = service.remain(amount);
-            int expected = 0;
-            assertEquals(expected, actual);
-        }
+    public void testRemainWithCashback() {
+        CashbackHackService service = new CashbackHackService();
+        int amount = 500;
+        int actual = service.remain(amount);
+        int expected = 500;
+        assertEquals(expected, actual);
     }
+}
